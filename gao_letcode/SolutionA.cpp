@@ -1,4 +1,6 @@
 #include"SolutionA.h"
+#include<algorithm>
+#include<iostream>
 
 void SolutionA::merge1(std::vector<int>& num1, int m, std::vector<int>& num2, int n)
      {
@@ -31,7 +33,29 @@ void SolutionA::merge2(std::vector<int>& num1, int m, std::vector<int>& num2, in
         num1[len--]= num2[n--];
     }
     
+};
+
+int removeDup(std::vector<int>& nums){
     
-    
-    
+    std::sort(nums.begin(), nums.end());
+
+    if(nums.size() < 2)
+    {
+        return nums.size();
+    }
+
+    int k = 0;
+    for (int i = 1; i < nums.size(); i++)
+    {
+        if (nums[k] != nums[i])
+        {
+            nums[++k] = nums[i];
+        }
+        
+    }
+    return ++k;
+};
+
+void sayHi(){
+    std::cout<<"hi"<<std::endl;
 };
