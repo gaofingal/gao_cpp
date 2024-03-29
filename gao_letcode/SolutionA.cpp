@@ -1,6 +1,6 @@
 #include"SolutionA.h"
 
-void SolutionA::merge(std::vector<int>& num1, int m, std::vector<int>& num2, int n)
+void SolutionA::merge1(std::vector<int>& num1, int m, std::vector<int>& num2, int n)
      {
      while(m > 0 && n > 0){
          if(num1[m - 1] < num2[n - 1]){
@@ -16,4 +16,22 @@ void SolutionA::merge(std::vector<int>& num1, int m, std::vector<int>& num2, int
              num1[i] = num2[i];
          }
         }
-     }
+     };
+
+void SolutionA::merge2(std::vector<int>& num1, int m, std::vector<int>& num2, int n)
+{
+    int len = m + n -1;
+    --m, --n;
+    while (m>-1 && n>-1)
+    {
+        num1[len--] = num1[m] > num2[n] ? num1[m--] : num2[n--];
+    }
+    while (n > -1)
+    {
+        num1[len--]= num2[n--];
+    }
+    
+    
+    
+    
+};
