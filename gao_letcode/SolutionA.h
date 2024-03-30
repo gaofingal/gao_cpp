@@ -10,6 +10,9 @@ public:
     */
     void merge1(std::vector<int>& num1, int m, std::vector<int>& num2, int n);
     void merge2(std::vector<int>& num1, int m, std::vector<int>& num2, int n);
-    // int removeDup(std::vector<int>& nums);
+    int removeDup(std::vector<int>& nums);
+    int removeElement(std::vector<int>& nums, int m);
+    int removeDuplicates(std::vector<int>& nums);
+    int majorityElement(std::vector<int>& nums);
     void sayHi();
 };

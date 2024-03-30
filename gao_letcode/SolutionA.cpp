@@ -55,6 +55,73 @@ int removeDup(std::vector<int>& nums){
     }
     return ++k;
 };
+    int removeElement(std::vector<int>& nums, int val){
+        int k = 0;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if(nums[i] != val)
+            {
+                // 1 3 9 3 7 20 16
+                nums[k] = nums[i];
+                ++k;
+            }
+        }
+        
+    };
+int removeDuplicates(std::vector<int>& nums){
+        // 1,1,1,1,2,3,4,4,4,5,6,7
+        int k = 0;
+        int d = 0;
+        for(int i = 1; i < nums.size(); ++i)
+        {
+            if(nums[k] != nums[i])
+            {
+                d = 0;
+                ++k;
+                nums[k] = nums[i];
+            }
+            else
+            {
+                ++d;
+                if(d == 1)
+                {
+                    k =k + 1;
+                    nums[k] = nums[i];
+                }
+            }
+        }
+        return ++k;
+    };
+     int majorityElement(std::vector<int>& nums)
+    {
+        sort(nums.begin(), nums.end());
+        int majorityEle = 0;
+        int k = 0;
+        int count = 0;
+        for (int i = 1; i < nums.size(); i++)
+        {
+            if(nums[k] != nums[i])
+            {
+                if ((i - k) > count)
+                {
+                    count = i - k;
+                    majorityEle = nums[k];
+                }
+                k = i; 
+            }
+            if (nums.size() == i + 1)
+            {
+                if ((nums[i] == nums[k]) && ((i - k + 1) > count))
+                {
+                    majorityEle = nums[k];
+                }  
+            }
+            
+            
+        }
+        return majorityEle;   
+    };
+
 
 void sayHi(){
     std::cout<<"hi"<<std::endl;
