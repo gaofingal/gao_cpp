@@ -122,6 +122,13 @@ int removeDuplicates(std::vector<int>& nums){
         return majorityEle;   
     };
 
+void rotate(std::vector<int>& nums, int k){
+        k = k%nums.size();
+        reverse(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.begin() + k);
+        reverse(nums.begin()+k, nums.end());
+    };
+
 
 void sayHi(){
     std::cout<<"hi"<<std::endl;

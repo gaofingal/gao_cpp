@@ -14,5 +14,6 @@ public:
     int removeElement(std::vector<int>& nums, int m);
     int removeDuplicates(std::vector<int>& nums);
     int majorityElement(std::vector<int>& nums);
+    void rotate(std::vector<int>& nums, int k);
     void sayHi();
 };
