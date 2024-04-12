@@ -1,6 +1,7 @@
 #include<vector>
 class SolutionA{
 public:
+    int  hello = 1;
     /***
      * 给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。
      * 请你 合并 nums2 到 nums1 中，使合并后的数组同样按 非递减顺序 排列。
@@ -39,5 +40,8 @@ public:
      * 返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。
      */
     int maxProfit(std::vector<int>& prices);
+    int maxProfitV1(std::vector<int>& prices);
+    int maxProfitV2(std::vector<int>& prices);
+    int maxProfitV3(std::vector<int>& prices);
     void sayHi();
 };

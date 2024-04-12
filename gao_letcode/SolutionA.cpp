@@ -154,43 +154,47 @@ int SolutionA::maxProfit(std::vector<int> &prices)
     }
     return maxpro;
 };
- int SolutionA::maxProfitV1(std::vector<int>& prices)
- {
-      int low = INT_MAX;
-        int result = 0;
-        for (int i = 0; i < prices.size(); i++) {
-            low = std::min(low, prices[i]);  // 取最左最小价格
-            result = std::max(result, prices[i] - low); // 直接取最大区间利润
-        }
-        return result;
- };
+int SolutionA::maxProfitV1(std::vector<int> &prices)
+{
+    int low = INT_MAX;
+    int result = 0;
+    for (int i = 0; i < prices.size(); i++)
+    {
+        low = std::min(low, prices[i]);             // 取最左最小价格
+        result = std::max(result, prices[i] - low); // 直接取最大区间利润
+    }
+    return result;
+};
 
- int SolutionA::maxProfitV2(std::vector<int>& prices)
- {
+int SolutionA::maxProfitV2(std::vector<int> &prices)
+{
     int len = prices.size();
-        if (len == 0) return 0;
-        std::vector<std::vector<int>> dp(len, std::vector<int>(2));
-        dp[0][0] -= prices[0];
-        dp[0][1] = 0;
-        for (int i = 1; i < len; i++) {
-            dp[i][0] = std::max(dp[i - 1][0], -prices[i]);
-            dp[i][1] = std::max(dp[i - 1][1], prices[i] + dp[i - 1][0]);
-        }
-        return dp[len - 1][1];
- };
+    if (len == 0)
+        return 0;
+    std::vector<std::vector<int>> dp(len, std::vector<int>(2));
+    dp[0][0] -= prices[0];
+    dp[0][1] = 0;
+    for (int i = 1; i < len; i++)
+    {
+        dp[i][0] = std::max(dp[i - 1][0], -prices[i]);
+        dp[i][1] = std::max(dp[i - 1][1], prices[i] + dp[i - 1][0]);
+    }
+    return dp[len - 1][1];
+};
 
- int SolutionA::maxProfitV3(std::vector<int>& prices)
- {
- int len = prices.size();
-        std::vector<std::vector<int>> dp(2, std::vector<int>(2)); // 注意这里只开辟了一个2 * 2大小的二维数组
-        dp[0][0] -= prices[0];
-        dp[0][1] = 0;
-        for (int i = 1; i < len; i++) {
-            dp[i % 2][0] = std::max(dp[(i - 1) % 2][0], -prices[i]);
-            dp[i % 2][1] = std::max(dp[(i - 1) % 2][1], prices[i] + dp[(i - 1) % 2][0]);
-        }
-        return dp[(len - 1) % 2][1];
- };
+int SolutionA::maxProfitV3(std::vector<int> &prices)
+{
+    int len = prices.size();
+    std::vector<std::vector<int>> dp(2, std::vector<int>(2)); // 注意这里只开辟了一个2 * 2大小的二维数组
+    dp[0][0] -= prices[0];
+    dp[0][1] = 0;
+    for (int i = 1; i < len; i++)
+    {
+        dp[i % 2][0] = std::max(dp[(i - 1) % 2][0], -prices[i]);
+        dp[i % 2][1] = std::max(dp[(i - 1) % 2][1], prices[i] + dp[(i - 1) % 2][0]);
+    }
+    return dp[(len - 1) % 2][1];
+};
 
 void SolutionA::sayHi()
 {
